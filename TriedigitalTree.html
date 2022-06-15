@@ -1,0 +1,83 @@
+<html>
+<body>
+<script>
+var Asize = 26;
+class digital_tree
+{
+	constructor()
+	{
+		this.word = false;
+		this.sides = new Array(Asize);
+		for (var p = 0; p < Asize; p++)
+			this.sides[p] = null;
+	}
+}
+
+var R;
+function In(x)
+{
+	var l;
+		var length = x.length;
+		var n;
+	    let v = R;
+		for (l = 0; l < length; l++)
+		{
+			n = x[l].charCodeAt(0) - 'a'.charCodeAt(0);
+			if (v.sides[n] == null)
+				v.sides[n] = new digital_tree();
+				v = v.sides[n];
+		}
+		v.word = true;
+}
+function SearchA(x)
+{
+	var l;
+	var length = x.length;
+	var n;
+	var v = R;
+	for (l = 0; l < length; l++)
+		{
+			n = x[l].charCodeAt(0) - 'a'.charCodeAt(0);
+	
+			if (v.sides[n] == null)
+				return false;
+				v = v.sides[n];
+		}
+	return (v.word);
+}
+var y = ["hi", "an", "their", "happy", "if", "bye", "very"];
+var op = ["found", "Not found"];
+R = new digital_tree();
+var p;
+for (p = 0; p < y.length ; p++)
+In(y[p]);
+if(SearchA("good") == true)
+	document.write("good->  " + op[0]+"<br>");
+else
+	document.write("good-> " + op[1]+"<br>");
+
+if(SearchA("their") == true)
+	document.write("their-> " + op[0]+"<br>");
+else
+	document.write("their-> " + op[1]+"<br>");
+if(SearchA("apple") == true)
+	document.write("apple-> " + op[0]+"<br>");
+else
+	document.write("apple-> " + op[1]+"<br>");
+
+if(SearchA("very") == true)
+	document.write("very-> " + op[0]+"<br>");
+else
+	document.write("very-> " + op[1]+"<br>");	
+if(SearchA("hi") == true)
+	document.write("hi-> " + op[0]+"<br>");
+else
+	document.write("hi-> " + op[1]+"<br>");
+if(SearchA("any") == true)
+	document.write("any-> " + op[0]+"<br>");
+else
+	document.write("any-> " + op[1]+"<br>");
+
+</script>
+</body>
+</html>
